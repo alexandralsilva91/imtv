@@ -5,10 +5,14 @@ import Movies from './pages/Movies';
 import Tv from './pages/Tv';
 import TvShow from './pages/TvShow';
 import './index.css'
+import NavBar from './common/Navbar';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
+    <NavBar />
+
     <Routes>
+      <Route path="/" element={<Movies />} />
       <Route path="/movies" element={<Movies />} />
       <Route path="/movie/:id" element={<Movie />} />
       <Route path="/tv" element={<Tv />} />

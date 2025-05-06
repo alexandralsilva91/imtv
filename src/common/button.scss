@@ -1,0 +1,37 @@
+@use 'base' as *;
+
+.button {
+    padding: 1rem;
+    border-color: transparent;
+    border-radius: 4px;
+    transition: all 250ms;
+    min-width: 8rem;
+    margin: 0 1rem;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    &--yellow {
+        background-color: $yellow;
+
+        color: $blue;
+
+        &:hover {
+            background-color: $yellowOnHover;
+        }
+    }
+
+    &--blue {
+        background-color: $blue;
+        color: $yellow;
+
+        &:hover {
+            background-color: $blueOnHover;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: $buttonShadow;
+    }
+}

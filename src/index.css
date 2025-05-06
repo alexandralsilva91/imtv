@@ -1,10 +1,13 @@
 :root {
-  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
   font-weight: 200;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0d1422;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -12,6 +15,6 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-weight: 300;
+.section {
+  display: flex;
 }

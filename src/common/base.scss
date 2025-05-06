@@ -1,0 +1,11 @@
+@use "sass:color";
+
+$blue: #0E3FA9;
+$blueOnHover: color.adjust($blue, $lightness: 5%);
+
+$yellow: #EFC017;
+$yellowOnHover: color.adjust($yellow, $lightness: 10%);
+
+$lighterYellow: color.adjust($yellow, $lightness: 35%);
+
+$buttonShadow: #ffffff26 0 0 15px 0px;

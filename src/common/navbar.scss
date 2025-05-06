@@ -1,0 +1,23 @@
+@use 'base' as *;
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: blur(12px);
+
+
+
+    &__logo {
+        color: $yellow;
+        text-decoration: none;
+        background: linear-gradient(90deg, $yellow, $lighterYellow);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
