@@ -14,6 +14,14 @@
         gap: 1.5rem;
         justify-content: center;
         width: 100%;
+
+            &.scrollable {
+                flex-wrap: nowrap;
+                overflow: scroll;
+                padding: 0 2rem;
+                width: auto;
+                justify-content: flex-start;
+            }
     }
 
     &__title {

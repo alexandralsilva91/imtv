@@ -16,7 +16,7 @@ function AiringTodayMovies() {
     }, []);
 
     return (
-        <Section title="Airing Today" items={movies} isLoading={isLoading} />
+        <Section title="Airing Today" items={movies} isLoading={isLoading} isScrollable />
     );
 }
 

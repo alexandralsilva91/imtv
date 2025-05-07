@@ -16,7 +16,7 @@ function TopRatedMovies() {
     }, []);
 
     return (
-        <Section title="Top Rated" items={movies} isLoading={isLoading} />
+        <Section title="Top Rated" items={movies} isLoading={isLoading} isScrollable/>
     );
 }
 

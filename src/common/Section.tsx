@@ -5,9 +5,12 @@ interface IProps {
     title: string;
     items: [];
     isLoading: boolean;
+    isScrollable: boolean;
 }
 
-function Section({ title, items, isLoading }: IProps) {
+function Section({ title, items, isLoading, isScrollable }: IProps) {
+
+    const extraClass = isScrollable? ("scrollable") : ("");
 
     return (
         <div className='section'>
@@ -15,7 +18,7 @@ function Section({ title, items, isLoading }: IProps) {
             {isLoading ? (
                 <div>Loading</div>
             ) : (
-                <div className='section__cards'>
+                <div className={`section__cards ${extraClass}`}>
                     {items.map((item) => (
                         <Card
                             key={item.id}
@@ -28,7 +31,6 @@ function Section({ title, items, isLoading }: IProps) {
                     ))};
                 </div>
             )}
-
         </div>
     );
 }

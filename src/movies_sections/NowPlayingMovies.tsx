@@ -16,7 +16,7 @@ function NowPlayingMovies() {
     }, []);
 
     return (
-        <Section title="Now Playing" items={movies} isLoading={isLoading} />
+        <Section title="Now Playing" items={movies} isLoading={isLoading} isScrollable />
     );
 }
 

@@ -1,3 +1,9 @@
+
+export function buildImgUrl(path) {
+    return `https://image.tmdb.org/t/p/original${path}`;
+}
+
+
 const fetchData = async (url: string) => {
     try {
         const response = await fetch(url,
@@ -17,20 +23,20 @@ const fetchData = async (url: string) => {
 }
 
 const api = {
+    getPopularMovies: () => fetchData("https://api.themoviedb.org/3/movie/popular"),
     getTopRatedMovies: () => fetchData("https://api.themoviedb.org/3/movie/top_rated"),
     getNowPlayingMovies: () => fetchData("https://api.themoviedb.org/3/movie/now_playing"),
     getUpcomingMovies: () => fetchData("https://api.themoviedb.org/3/movie/upcoming"),
+    getMovie: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}`),
+    getMovieCredits: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}/credits`),
+    getMovieImages: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}/images`),
     getTvPopular: () => fetchData("https://api.themoviedb.org/3/tv/popular"),
     getTvTopRated: () => fetchData("https://api.themoviedb.org/3/tv/top_rated"),
     getTvOnTheAir: () => fetchData("https://api.themoviedb.org/3/tv/on_the_air"),
     getTvAiringToday: () => fetchData("https://api.themoviedb.org/3/tv/airing_today"),
-    getMovie: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}`),
-    getTvShow: () => fetchData("https://api.themoviedb.org/3/tv/{tv_id}"),
-    getMovieCredits: () => fetchData("https://api.themoviedb.org/3/movie/{movie_id}/credits"),
-    getTvShowCredits: () => fetchData("https://api.themoviedb.org/3/tv/{tv_id}/credits"),
-    getMovieImages: () => fetchData("https://api.themoviedb.org/3/movie/{movie_id}/images"),
-    getTvShowImages: () => fetchData("https://api.themoviedb.org/3/tv/{tv_id}/images"),
-    getPopularMovies: () => fetchData("https://api.themoviedb.org/3/movie/popular"),
+    getTvShow: (tv_id: string) => fetchData(`https://api.themoviedb.org/3/tv/${tv_id}`),
+    getTvShowCredits: (tv_id: string) => fetchData(`https://api.themoviedb.org/3/tv/${tv_id}/credits`),
+    getTvShowImages: (tv_id: string) => fetchData(`https://api.themoviedb.org/3/tv/${tv_id}/images`),
 }
 
 export default api;
