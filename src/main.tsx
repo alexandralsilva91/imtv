@@ -10,7 +10,6 @@ import NavBar from './common/Navbar';
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <NavBar />
-
     <Routes>
       <Route path="/" element={<Movies />} />
       <Route path="/movies" element={<Movies />} />

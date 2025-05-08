@@ -1,8 +1,4 @@
 
-export function buildImgUrl(path) {
-    return `https://image.tmdb.org/t/p/original${path}`;
-}
-
 
 const fetchData = async (url: string) => {
     try {

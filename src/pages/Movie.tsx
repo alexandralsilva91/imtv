@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-//import SplashScreen from "../common/SplashScreen";
 import api from "../utils/api";
 import { useParams } from "react-router";
 import SplashScreen from "../common/SplashScreen";
+import { formatTime } from "../utils/format";
+import Overview from "../common/Overview";
+import Credits from "../common/Credits";
 
 function Movie() {
     const { id } = useParams();
@@ -20,14 +22,26 @@ function Movie() {
     }, []);
 
     return (
-        <SplashScreen
-            title={movie.title}
-            year={movie.release_date}
-            rating={movie.vote_average}
-            movieDuration={movie.runtime}
-            tags={movie.genres}
-            backgroundImg={movie.backdrop_path}
-        />)
+        <>
+            {isLoading ? ("Loading") :
+                (
+                <>
+                <SplashScreen
+                    title={movie.title}
+                    year={new Date(movie.release_date).getFullYear()}
+                    rating={movie.vote_average}
+                    runTime={formatTime(movie.runtime)}
+                    backdropPath={movie.backdrop_path}
+                    posterPath={movie.poster_path}
+                    tags={movie.genres}
+                />
+                <Overview text={movie.overview}/>
+                
+                </>
+                )}
+        </>
+
+    )
 }
 
 export default Movie;

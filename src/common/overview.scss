@@ -1,0 +1,16 @@
+@use 'base' as *;
+
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 27rem;
+    margin-right: 12rem;
+    margin-top: 2rem;
+    justify-content: flex-start;
+    gap: 1rem;
+
+
+    & .overview-text {
+        display: flex;
+    }
+}

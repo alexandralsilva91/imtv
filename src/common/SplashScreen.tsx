@@ -1,35 +1,47 @@
-import { buildImgUrl } from "../utils/api";
+import { buildImgUrl } from "../utils/format";
+import RatingStars from "./RatingStars";
+import "./splashscreen.scss"
 
 interface IProps {
     items: [],
     title: string,
     year: number,
-    rating: any,
-    movieDuration: any,
-    tags: [],
+    rating: number,
+    runTime: number,
+    backdropPath: string,
+    posterPath: string,
+    tags: []
 }
 
-function SplashScreen({ title, year, rating, movieDuration, backgroundImg, tags }: IProps) {
+function SplashScreen({ title, year, rating, runTime, backdropPath, posterPath, tags }: IProps) {
     return (
         <div className="splash-screen">
-            <img className="splash-screen__background-img" src="" alt="" />
+            <div className="splash-screen__backdrop-image">
+                <img src={buildImgUrl(backdropPath)} alt="background image" />
+            </div>
             <div className="splash-screen__content">
-                <img src={buildImgUrl(backgroundImg)} alt="background-img" />
-                <div>
-                    <h1>{title}</h1>
-                    <div>
-                        <span>{rating}</span>
+                <div className="splash-screen__content-left" >
+                    <img src={buildImgUrl(posterPath)} alt="poster image" />
+                </div>
+                <div className="splash-screen__content-right">
+                    <h1 className="splash-screen__title">{title}</h1>
+                    <div className="splash-screen__info">
+                        <span><RatingStars rating={rating}/></span>
                         <span>{year}</span>
-                        <span>{movieDuration}</span>
+                        <span>{runTime}</span>
                     </div>
-                    <div className="tags">
-                        {/*fazer map das tags*/}
-                        <span></span>
+                    <div className="splash-screen__tags">
+                        {tags.map((tag) => (
+                            <div key={tag.id} className="splash-screen__tag">{tag.name}</div>
+                        ))}
                     </div>
                 </div>
-            </div>                
-        </div>
+            </div>
+        </div >
     )
 }
 
 export default SplashScreen;
+
+
+
