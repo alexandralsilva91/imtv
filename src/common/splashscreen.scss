@@ -16,7 +16,9 @@
             z-index: -1;
             max-width: 65rem;
             mask-image:
-                linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
+                linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%),
+                linear-gradient(to left, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-composite: intersect;
         }
 
     }
