@@ -23,6 +23,7 @@ const api = {
     getTopRatedMovies: () => fetchData("https://api.themoviedb.org/3/movie/top_rated"),
     getNowPlayingMovies: () => fetchData("https://api.themoviedb.org/3/movie/now_playing"),
     getUpcomingMovies: () => fetchData("https://api.themoviedb.org/3/movie/upcoming"),
+    getMoreLikeThisMovie: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}/recommendations`),
     getMovie: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}`),
     getMovieCredits: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}/credits`),
     getMovieImages: (movie_id: string) => fetchData(`https://api.themoviedb.org/3/movie/${movie_id}/images`),

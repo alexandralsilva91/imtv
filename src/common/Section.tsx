@@ -6,11 +6,12 @@ interface IProps {
     items: [];
     isLoading: boolean;
     isScrollable: boolean;
+    isBasic?: boolean;
 }
 
-function Section({ title, items, isLoading, isScrollable }: IProps) {
+function Section({ title, items, isLoading, isScrollable, isBasic = false }: IProps) {
 
-    const extraClass = isScrollable? ("scrollable") : ("");
+    const extraClass = isScrollable ? ("scrollable") : ("");
 
     return (
         <div className='section'>
@@ -27,6 +28,7 @@ function Section({ title, items, isLoading, isScrollable }: IProps) {
                             rating={item.vote_average}
                             poster={item.poster_path}
                             year={item.release_date}
+                            isBasic={isBasic}
                         />
                     ))};
                 </div>

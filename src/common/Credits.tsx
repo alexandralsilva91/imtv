@@ -32,7 +32,7 @@ function Credits({ membersType, showType }: IProps) {
             }).finally(() => {
                 setIsLoading(false);
             });
-    }, []);
+    }, [id]);
 
     return (
         <div>
@@ -43,7 +43,7 @@ function Credits({ membersType, showType }: IProps) {
                         <div className="__members-type">
                             {membersType === "Cast" ?
                                 (castElements.map((element) => (
-                                    <div className="__cast" key={element.id}>
+                                    <div className="__cast" key={'cast_' + element.id}>
                                         <div className="__cast-element">
                                             <div className="__cast-element-avatar">
                                                 <img src={element.profile_path === null ? ("../public/user.svg") : (buildAvatarUrl(element.profile_path))} alt="avatar" />
@@ -54,7 +54,7 @@ function Credits({ membersType, showType }: IProps) {
                                     </div>))
                                 ) :
                                 (crewElements.map((element) => (
-                                    <div className="__crew" key={element.id}>
+                                    <div className="__crew" key={'crew_' + element.id}>
                                         <div className="__crew-element">
                                             <span className="__crew-element-name">{element.name}</span>
                                             <span className="__crew-element-role">{element.known_for_department}</span>
