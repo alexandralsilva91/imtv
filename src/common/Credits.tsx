@@ -1,45 +1,77 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./credits.scss";
-import Title from "./Title";
 import api from "../utils/api";
+import { useParams } from "react-router";
+import Title from "./Title";
+import { buildAvatarUrl } from "../utils/format";
+
 
 interface IProps {
-    avatarPath?: string,
-    name: string,
-    role: string,
+    membersType: "Cast" | "Crew",
+    showType?: "Movie" | "TvShow",
 }
 
-function Credits({avatarPath, name, role} : IProps) {
+function Credits({ membersType, showType }: IProps) {
 
     const { id } = useParams();
-    const [credits, setCredits] = useState({});
+    const [castElements, setCastElements] = useState([]);
+    const [crewElements, setCrewElements] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    // const request = se o type for igual a movie
+    // resquest = api.getMovieCredits
+    // se o type for igual a tv
+    // request = api.getTvShowCredits
+
     useEffect(() => {
-        api.getMovieCredits(id!)
-            .then((data) => {
+        api.getMovieCredits(id!)  // request(id!)
+            .then((data) => {               // data = { cast: [{}, {}, {}, {}, ...] crew: [{}, {}, {}, {}, ...] }
                 console.log(data);
-                setCredits(data);
+                setCastElements(data.cast); // data.cast= [{}, {}, {}, {}, ...]
+                setCrewElements(data.crew);
             }).finally(() => {
                 setIsLoading(false);
             });
     }, []);
 
-    return(
-        <>
-        {isLoading? ("Loading") : 
-        (<div className="credits">
-            <Title title=""/>
-            <div>
-                <div>
-                    <img src={} alt="avatar" />
-                </div>
-                <div>{name}</div>
-                <div>{role}</div>
-            </div>
-        </div>)}
-        </>   
-    )
+    return (
+        <div>
+            {isLoading ? ("Loading") :
+                (
+                    <div className="credits">
+                        <Title title={membersType} />
+                        <div className="__members-type">
+                            {membersType === "Cast" ?
+                                (castElements.map((element) => (
+                                    <div className="__cast" key={element.id}>
+                                        <div className="__cast-element">
+                                            <div className="__cast-element-avatar">
+                                                <img src={element.profile_path === null ? ("../public/user.svg") : (buildAvatarUrl(element.profile_path))} alt="avatar" />
+                                            </div>
+                                            <span className="__cast-element-name">{element.name}</span>
+                                            <span className="__cast-element-role">{element.character}</span>
+                                        </div>
+                                    </div>))
+                                ) :
+                                (crewElements.map((element) => (
+                                    <div className="__crew" key={element.id}>
+                                        <div className="__crew-element">
+                                            <span className="__crew-element-name">{element.name}</span>
+                                            <span className="__crew-element-role">{element.known_for_department}</span>
+                                        </div>
+                                    </div>
+                                )))
+                            }
+                        </div>
+                    </div>
+                )
+            }
+        </div>
+    );
 }
 
 export default Credits;
+
+
+
+

@@ -36,6 +36,8 @@ function Movie() {
                     tags={movie.genres}
                 />
                 <Overview text={movie.overview}/>
+                <Credits membersType="Cast" showType="Movie"/>
+                <Credits membersType="Crew"/>
                 
                 </>
                 )}
