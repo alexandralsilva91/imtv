@@ -8,24 +8,28 @@ interface IProps {
     year?: string,
     rating: number,
     poster: string,
-    isBasic?: boolean,
+    showType: "Movies" | "TV Series"
 }
 
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
 
-function Card({ id, title, year, rating, poster, isBasic }: IProps) {
+function Card({ showType, id, title, year, rating, poster }: IProps) {
+    const link = showType === "Movies" ? `/movie/${id}` : `/tv/${id}`;
+
     return (
-        <Link to={`/movie/${id}`} style={{ textDecoration: 'none', color: 'white' }}>
-            {isBasic ?
-                (<div className="card">
-                    <img src={`https://image.tmdb.org/t/p/w500${poster}`} className="card__poster" alt="movie poster" />
-                </div>) :
-                (<div className="card">
-                    <img src={`https://image.tmdb.org/t/p/w500${poster}`} className="card__poster" alt="movie poster" />
-                    {title ? <h3 className="card__title" title={title}>{title}</h3> : null}
-                    {year ? <div className="card__year">{new Date(year).getFullYear()}</div> : null}
-                    <RatingStars rating={rating} />
-                </div>)}
-        </Link>
+        <Link to={link} style={{ textDecoration: 'none', color: 'white' }} onClick={scrollToTop}>
+            <div className="card">
+                <img src={`https://image.tmdb.org/t/p/w500${poster}`} className="card__poster" alt={`${title} poster`} />
+                {title ? <h3 className="card__title" title={title}>{title}</h3> : null}
+                {year ? <div className="card__year">{new Date(year).getFullYear()}</div> : null}
+                <RatingStars rating={rating} />
+            </div>
+        </ Link>
     );
 }
 

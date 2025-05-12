@@ -1,15 +1,15 @@
-import PopularMovies from '../movies_sections/PopularMovies';
-import NowPlayingMovies from '../movies_sections/NowPlayingMovies';
-import TopRatedMovies from '../movies_sections/TopRatedMovies';
-import AiringTodayMovies from '../movies_sections/AiringTodayMovies';
+import NowPlayingMovies from '../page_sections/NowPlayingMovies';
+import TopRated from '../page_sections/TopRated';
+import UpcomingMovies from '../page_sections/UpcomingMovies';
+import Popular from '../page_sections/Popular';
 
 function Movies() {
     return (
         <div className='sections'>
-            <PopularMovies />
+            <Popular showType="Movies" />
             <NowPlayingMovies />
-            <TopRatedMovies />
-            <AiringTodayMovies />
+            <TopRated showType="Movies" />
+            <UpcomingMovies />
         </div>
     )
 }

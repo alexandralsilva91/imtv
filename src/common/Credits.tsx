@@ -8,7 +8,7 @@ import { buildAvatarUrl } from "../utils/format";
 
 interface IProps {
     membersType: "Cast" | "Crew",
-    showType?: "Movie" | "TvShow",
+    showType?: "Movies" | "TV Series",
 }
 
 function Credits({ membersType, showType }: IProps) {
@@ -24,15 +24,25 @@ function Credits({ membersType, showType }: IProps) {
     // request = api.getTvShowCredits
 
     useEffect(() => {
-        api.getMovieCredits(id!)  // request(id!)
-            .then((data) => {               // data = { cast: [{}, {}, {}, {}, ...] crew: [{}, {}, {}, {}, ...] }
-                console.log(data);
-                setCastElements(data.cast); // data.cast= [{}, {}, {}, {}, ...]
+        if (showType === "Movies") {
+            api.getMovieCredits(id!)  
+            .then((data) => {                   // data = { cast: [{}, {}, {}, {}, ...] crew: [{}, {}, {}, {}, ...] }
+                setCastElements(data.cast);     // data.cast= [{}, {}, {}, {}, ...]
                 setCrewElements(data.crew);
             }).finally(() => {
                 setIsLoading(false);
             });
-    }, [id]);
+        } else if (showType === "TV Series") {
+            api.getTvShowCredits(id!)  
+            .then((data) => {               
+                setCastElements(data.cast); 
+                setCrewElements(data.crew);
+            }).finally(() => {
+                setIsLoading(false);
+            });
+        }
+        
+    }, [id, showType]);
 
     return (
         <div>

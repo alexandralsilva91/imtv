@@ -3,17 +3,19 @@ import RatingStars from "./RatingStars";
 import "./splashscreen.scss"
 
 interface IProps {
+    showType: "Movies" | "TV Series",
     items: [],
     title: string,
     year: number,
     rating: number,
-    runTime: number,
+    runTime?: number,
+    numberOfSeasons?: number,
     backdropPath: string,
     posterPath: string,
     tags: []
 }
 
-function SplashScreen({ title, year, rating, runTime, backdropPath, posterPath, tags }: IProps) {
+function SplashScreen({ showType, title, year, rating, runTime, numberOfSeasons, backdropPath, posterPath, tags }: IProps) {
     return (
         <div className="splash-screen">
             <div className="splash-screen__backdrop-image">
@@ -28,7 +30,7 @@ function SplashScreen({ title, year, rating, runTime, backdropPath, posterPath, 
                     <div className="splash-screen__info">
                         <span><RatingStars rating={rating}/></span>
                         <span>{year}</span>
-                        <span>{runTime}</span>
+                        {showType === "Movies"? (<span>{runTime}</span>) : (<span>{numberOfSeasons} seasons</span>)}    
                     </div>
                     <div className="splash-screen__tags">
                         {tags.map((tag) => (

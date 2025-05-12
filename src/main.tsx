@@ -5,7 +5,7 @@ import Movies from './pages/Movies';
 import Tv from './pages/Tv';
 import TvShow from './pages/TvShow';
 import './index.css'
-import NavBar from './common/Navbar';
+import NavBar from './common/NavBar';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>

@@ -2,14 +2,14 @@ import Card from "./Card";
 import "./section.scss";
 
 interface IProps {
+    showType: "Movies" | "TV Series"
     title: string;
     items: [];
     isLoading: boolean;
     isScrollable: boolean;
-    isBasic?: boolean;
 }
 
-function Section({ title, items, isLoading, isScrollable, isBasic = false }: IProps) {
+function Section({ showType, title, items, isLoading, isScrollable }: IProps) {
 
     const extraClass = isScrollable ? ("scrollable") : ("");
 
@@ -19,19 +19,34 @@ function Section({ title, items, isLoading, isScrollable, isBasic = false }: IPr
             {isLoading ? (
                 <div>Loading</div>
             ) : (
-                <div className={`section__cards ${extraClass}`}>
-                    {items.map((item) => (
-                        <Card
-                            key={item.id}
-                            id={item.id}
-                            title={item.title}
-                            rating={item.vote_average}
-                            poster={item.poster_path}
-                            year={item.release_date}
-                            isBasic={isBasic}
-                        />
-                    ))};
-                </div>
+                showType === "TV Series" ?
+                    (<div className={`section__cards ${extraClass}`}>
+                        {items.map((item) => (
+                            <Card
+                                showType="TV Series"
+                                key={item.id}
+                                id={item.id}
+                                title={item.name}
+                                rating={item.vote_average}
+                                poster={item.poster_path}
+                                year={item.first_air_date}
+                            />
+                        ))};
+                    </div>) :
+
+                    (<div className={`section__cards ${extraClass}`}>
+                        {items.map((item) => (
+                            <Card
+                                showType="Movies"
+                                key={item.id}
+                                id={item.id}
+                                title={item.title}
+                                rating={item.vote_average}
+                                poster={item.poster_path}
+                                year={item.release_date}
+                            />
+                        ))};
+                    </div>)
             )}
         </div>
     );

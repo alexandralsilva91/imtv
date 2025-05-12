@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import api from '../utils/api';
 import Section from '../common/Section';
 
-function AiringTodayMovies() {
+function UpcomingMovies() {
     const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
 
@@ -16,8 +16,11 @@ function AiringTodayMovies() {
     }, []);
 
     return (
-        <Section title="Airing Today" items={movies} isLoading={isLoading} isScrollable />
+        <>
+        {isLoading? ("Loading") : 
+        (<Section title="Upcoming Movies" items={movies} isLoading={isLoading} isScrollable/>)}
+        </>
     );
 }
 
-export default AiringTodayMovies;
+export default UpcomingMovies;

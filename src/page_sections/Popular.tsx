@@ -1,48 +1,40 @@
-import api from "../utils/api";
-import { useEffect, useState } from "react";
-import "./morelikethis.scss";
-import Section from "./Section";
+import { useEffect, useState } from 'react';
+import api from '../utils/api';
+import Section from '../common/Section';
+
 
 interface IProps {
-    id: number,
     showType: "Movies" | "TV Series"
 }
 
-function MoreLikeThis({ showType, id }: IProps) {
+function Popular({ showType }: IProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [shows, setShows] = useState([]);
 
-
     useEffect(() => {
         if (showType === "Movies") {
-            api.getMoreLikeThisMovie(id)
+            api.getPopularMovies()
                 .then((data) => {
                     setShows(data.results);
                 }).finally(() => {
                     setIsLoading(false);
                 })
         } else if (showType === "TV Series") {
-            api.getMoreLikeThisTvShow(id)
+            api.getTvPopular()
                 .then((data) => {
                     setShows(data.results);
                 }).finally(() => {
                     setIsLoading(false);
                 })
         }
-    }, [showType, id]);
+    }, []);
 
     return (
-        <>{isLoading ?
-            ("Loading"):
-            (<Section
-                showType = { showType }
-                title = "More Like This"
-                items = { shows }
-                isLoading = { isLoading }
-                isScrollable
-            />)}
+        <>
+            {isLoading ? ("Loading") :
+                (<Section title={`Popular ${showType}`} showType={showType} items={shows} isLoading={isLoading} />)}
         </>
-    )
+    );
 }
 
-export default MoreLikeThis;
+export default Popular;

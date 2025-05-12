@@ -5,7 +5,7 @@ import SplashScreen from "../common/SplashScreen";
 import { formatTime } from "../utils/format";
 import Overview from "../common/Overview";
 import Credits from "../common/Credits";
-import MoreLikeThese from "../common/MoreLikeThis";
+import MoreLikeThis from "../common/MoreLikeThis";
 
 function Movie() {
     const { id } = useParams();
@@ -37,9 +37,9 @@ function Movie() {
                             tags={movie.genres}
                         />
                         <Overview text={movie.overview} />
-                        <Credits membersType="Cast" showType="Movie" id={movie.idd} />
-                        <Credits membersType="Crew" id={movie.id} />
-                        <MoreLikeThese id={movie.id} />
+                        <Credits membersType="Cast" showType="Movies" id={movie.id} />
+                        <Credits membersType="Crew" showType="Movies" id={movie.id} />
+                        <MoreLikeThis showType="Movies" id={movie.id} />
                     </>
                 )}
         </>

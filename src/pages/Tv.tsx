@@ -1,7 +1,15 @@
+import Popular from "../page_sections/Popular";
+import TopRated from "../page_sections/TopRated";
+import AiringTodayTvShows from "../page_sections/TvAiringToday";
 
 function Tv() {
     return(
-        "Here I will show the TV shows list" 
+        <>
+            <Popular showType="TV Series" />
+            <TopRated showType="TV Series" />
+            <AiringTodayTvShows />
+            
+        </>
     )
 }
 

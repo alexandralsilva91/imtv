@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import api from '../utils/api';
 import Section from '../common/Section';
 
-
-function PopularMovies() {
+function NowPlayingMovies() {
     const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        api.getPopularMovies()
+        api.getNowPlayingMovies()
             .then((data) => {
                 setMovies(data.results);
             }).finally(() => {
@@ -17,8 +16,11 @@ function PopularMovies() {
     }, []);
 
     return (
-        <Section title="Popular Movies" items={movies} isLoading={isLoading} />
+        <>
+        {isLoading? ("Loading") : 
+        (<Section showType="Movies" title="Now playing" items={movies} isLoading={isLoading} isScrollable/>)}
+        </>
     );
 }
 
-export default PopularMovies;
+export default NowPlayingMovies;
