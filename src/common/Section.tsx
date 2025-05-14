@@ -1,5 +1,6 @@
 import Card from "./Card";
 import "./section.scss";
+import SectionLoader from "./SectionLoader";
 
 interface IProps {
     showType: "Movies" | "TV Series"
@@ -9,19 +10,17 @@ interface IProps {
     isScrollable: boolean;
 }
 
-function Section({ showType, title, items, isLoading, isScrollable }: IProps) {
-
-    const extraClass = isScrollable ? ("scrollable") : ("");
-
-    return (
-        <div className='section'>
-            <h2 className='section__title'>{title}</h2>
-            {isLoading ? (
-                <div>Loading</div>
-            ) : (
-                showType === "TV Series" ?
-                    (<div className={`section__cards ${extraClass}`}>
-                        {items.map((item) => (
+function renderContent({ isLoading, showType, items, extraClassName }) {
+    if (!isLoading && items.length === 0) {
+        return (
+            <p>No available data</p>
+        );
+    } else {
+        return (
+            <div className={`section__cards ${extraClassName}`}>
+                {
+                    showType === "TV Series" ?
+                        items.map((item) => (
                             <Card
                                 showType="TV Series"
                                 key={item.id}
@@ -31,11 +30,9 @@ function Section({ showType, title, items, isLoading, isScrollable }: IProps) {
                                 poster={item.poster_path}
                                 year={item.first_air_date}
                             />
-                        ))};
-                    </div>) :
-
-                    (<div className={`section__cards ${extraClass}`}>
-                        {items.map((item) => (
+                        ))
+                        :
+                        items.map((item) => (
                             <Card
                                 showType="Movies"
                                 key={item.id}
@@ -45,9 +42,24 @@ function Section({ showType, title, items, isLoading, isScrollable }: IProps) {
                                 poster={item.poster_path}
                                 year={item.release_date}
                             />
-                        ))};
-                    </div>)
-            )}
+                        ))
+                }
+            </div >
+        )
+    }
+}
+
+function Section({ showType, title, items, isLoading, isScrollable }: IProps) {
+
+    const extraClassName = isScrollable ? "scrollable" : "";
+
+    return (
+        <div className='section'>
+            <h2 className='section__title'>{title}</h2>
+            {isLoading ?
+                (<SectionLoader isScrollable={isScrollable} />) :
+                renderContent({ showType, isLoading, items, extraClassName })
+            }
         </div>
     );
 }

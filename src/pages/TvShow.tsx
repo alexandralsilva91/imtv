@@ -1,10 +1,8 @@
 import api from "../utils/api";
 import { useParams } from "react-router";
 import SplashScreen from "../common/SplashScreen";
-import { formatTime } from "../utils/format";
 import Overview from "../common/Overview";
 import Credits from "../common/Credits";
-
 import { useEffect, useState } from "react";
 import MoreLikeThis from "../common/MoreLikeThis";
 
@@ -30,7 +28,6 @@ function TvShow() {
                 (
                     <>
                         <SplashScreen
-                            showType="TV Series"
                             title={tvShow.name}
                             year={new Date(tvShow.first_air_date).getFullYear()}
                             rating={tvShow.vote_average}

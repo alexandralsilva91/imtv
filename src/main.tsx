@@ -6,6 +6,7 @@ import Tv from './pages/Tv';
 import TvShow from './pages/TvShow';
 import './index.css'
 import NavBar from './common/NavBar';
+import SearchPage from './pages/SearchPage';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/movie/:id" element={<Movie />} />
       <Route path="/tv" element={<Tv />} />
       <Route path="/tv/:id" element={<TvShow />} />
+      <Route path='/search' element={<SearchPage />} />
     </Routes>
   </BrowserRouter>,
 )

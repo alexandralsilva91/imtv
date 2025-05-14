@@ -30,10 +30,7 @@ function Popular({ showType }: IProps) {
     }, []);
 
     return (
-        <>
-            {isLoading ? ("Loading") :
-                (<Section title={`Popular ${showType}`} showType={showType} items={shows} isLoading={isLoading} />)}
-        </>
+        <Section title={`Popular ${showType}`} showType={showType} items={shows} isLoading={isLoading} />
     );
 }
 
