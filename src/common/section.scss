@@ -17,8 +17,8 @@
 
             &.scrollable {
                 flex-wrap: nowrap;
-                overflow: scroll;
-                padding: 0 2rem;
+                overflow-x: scroll;
+                padding: 1rem 2rem;
                 width: auto;
                 justify-content: flex-start;
             }
