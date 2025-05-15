@@ -7,26 +7,35 @@ function SearchPage() {
     const [searchParams] = useSearchParams();
     const input = searchParams.get("q");
 
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchedMovies, setSearchedMovies] = useState([]);
+    const [searchedSeries, setSearchedSeries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
     useEffect(() => {
+        setIsLoading(true);
         if (input) {
-            api.getSearchQuery(String(input))
-                .then((data) => {
-                    setSearchResults(data.results);
-                }).finally(() => {
-                    setIsLoading(false);
+            Promise.all([
+                api.getSearchMoviesByQuery(String(input)),
+                api.getSearchSeriesByQuery(String(input)),
+            ])
+                .then(([moviesData, seriesData]) => {
+                    setSearchedMovies(moviesData.results);
+                    setSearchedSeries(seriesData.results);
+                })
+                .catch((error) => {
+                    console.error("Error getting the data", error)
+                })
+                .finally(() => {
+                    setIsLoading(false)
                 })
         }
     }, [input])
 
-
     return (
-
-        <Section showType="Movies" items={searchResults} isLoading={isLoading} title="Movies results" isScrollable />
-
+        <>
+            <Section showType="Movies" items={searchedMovies} isLoading={isLoading} title="Movies results" isScrollable />
+            <Section showType="TV Series" items={searchedSeries} isLoading={isLoading} title="Series results" isScrollable />
+        </>    
     )
 }
 

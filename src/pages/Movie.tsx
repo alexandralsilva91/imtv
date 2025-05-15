@@ -36,7 +36,7 @@ function Movie() {
                             posterPath={movie.poster_path}
                             tags={movie.genres}
                         />
-                        <Overview text={movie.overview} />
+                        <Overview text={{movie.overview? movie.overview : "No available data"}} />
                         <Credits membersType="Cast" showType="Movies" id={movie.id} />
                         <Credits membersType="Crew" showType="Movies" id={movie.id} />
                         <MoreLikeThis showType="Movies" id={movie.id} />

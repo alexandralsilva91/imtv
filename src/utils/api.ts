@@ -35,7 +35,8 @@ const api = {
     getTvShow: (tv_id: number | string) => fetchData(`https://api.themoviedb.org/3/tv/${tv_id}`),
     getTvShowCredits: (tv_id: number | string) => fetchData(`https://api.themoviedb.org/3/tv/${tv_id}/credits`),
     getTvShowImages: (tv_id: number) => fetchData(`https://api.themoviedb.org/3/tv/${tv_id}/images`),
-    getSearchQuery: (input: string) => fetchData(`https://api.themoviedb.org/3/search/movie?query=${input}`),
+    getSearchMoviesByQuery: (input: string) => fetchData(`https://api.themoviedb.org/3/search/movie?query=${input}`),
+    getSearchSeriesByQuery: (input: string) => fetchData(`https://api.themoviedb.org/3/search/tv?query=${input}`),
 }
 
 export default api;
