@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import Button from "./Button";
 import "./navbar.scss"
+import SearchBar from "./SearchBar";
 
 function NavBar() {
     return (
@@ -8,7 +9,9 @@ function NavBar() {
             <Link className="navbar__logo" to="/">
                 <h1>IMTV</h1>
             </Link>
-            <div>
+            <SearchBar />
+            <div className="navbar-right">
+                
                 <Link to="/movies">
                     <Button color="blue">Movies</Button>
                 </Link>

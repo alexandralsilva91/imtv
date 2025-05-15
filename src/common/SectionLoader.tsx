@@ -20,8 +20,9 @@ function SectionLoader({ isScrollable }) {
             ) : (
                 <>
                     <rect x="108" y="0" rx="4" ry="4" width="212" height="402" />
-                    <rect x="108" y="0" rx="4" ry="4" width="212" height="402" />
-                    <rect x="108" y="0" rx="4" ry="4" width="212" height="402" />
+                    <rect x="344" y="0" rx="4" ry="4" width="212" height="402" />
+                    <rect x="580" y="0" rx="4" ry="4" width="212" height="402" />
+                    <rect x="816" y="0" rx="4" ry="4" width="212" height="402" />
                 </>
             )}
 

@@ -36,7 +36,7 @@ function TvShow() {
                             posterPath={tvShow.poster_path}
                             tags={tvShow.genres}
                         />
-                        <Overview text={{tvShow.overview? tvShow.overview : "No available data"}} />
+                        <Overview text={tvShow.overview? tvShow.overview : "No available data"} />
                         <Credits membersType="Cast" showType="TV Series" id={tvShow.id} />
                         <Credits membersType="Crew" showType="TV Series" id={tvShow.id} />
                         <MoreLikeThis showType="TV Series" id={id} />

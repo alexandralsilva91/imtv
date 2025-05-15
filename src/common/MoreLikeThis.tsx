@@ -1,6 +1,5 @@
 import api from "../utils/api";
 import { useEffect, useState } from "react";
-import "./morelikethis.scss";
 import Section from "./Section";
 
 interface IProps {
