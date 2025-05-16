@@ -4,7 +4,7 @@ import Section from "./Section";
 
 interface IProps {
     id: number,
-    showType: "Movies" | "TV Series"
+    showType: "Movies" | "TV Shows"
 }
 
 function MoreLikeThis({ showType, id }: IProps) {
@@ -20,7 +20,7 @@ function MoreLikeThis({ showType, id }: IProps) {
                 }).finally(() => {
                     setIsLoading(false);
                 })
-        } else if (showType === "TV Series") {
+        } else if (showType === "TV Shows") {
             api.getMoreLikeThisTvShow(id)
                 .then((data) => {
                     setShows(data.results);

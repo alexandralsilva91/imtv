@@ -8,7 +8,7 @@ import { buildAvatarUrl } from "../utils/format";
 
 interface IProps {
     membersType: "Cast" | "Crew",
-    showType?: "Movies" | "TV Series",
+    showType?: "Movies" | "TV Shows",
 }
 
 function Credits({ membersType, showType }: IProps) {
@@ -32,7 +32,7 @@ function Credits({ membersType, showType }: IProps) {
             }).finally(() => {
                 setIsLoading(false);
             });
-        } else if (showType === "TV Series") {
+        } else if (showType === "TV Shows") {
             api.getTvShowCredits(id!)  
             .then((data) => {               
                 setCastElements(data.cast); 

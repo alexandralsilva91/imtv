@@ -4,7 +4,7 @@ import Section from '../common/Section';
 
 
 interface IProps {
-    showType: "Movies" | "TV Series"
+    showType: "Movies" | "TV Shows"
 }
 
 function Popular({ showType }: IProps) {
@@ -19,7 +19,7 @@ function Popular({ showType }: IProps) {
                 }).finally(() => {
                     setIsLoading(false);
                 })
-        } else if (showType === "TV Series") {
+        } else if (showType === "TV Shows") {
             api.getTvPopular()
                 .then((data) => {
                     setShows(data.results);

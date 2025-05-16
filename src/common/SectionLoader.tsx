@@ -1,6 +1,12 @@
 import ContentLoader from "react-content-loader";
 
-function SectionLoader({ isScrollable }) {
+// I used https://skeletonreact.com/ to help me to do this Component.
+
+interface IProps {
+    isScrollable: boolean,
+}
+
+function SectionLoader({ isScrollable = true} : IProps) {
     return (
         <ContentLoader
             speed={1}

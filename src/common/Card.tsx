@@ -8,7 +8,7 @@ interface IProps {
     year?: string,
     rating: number,
     poster: string,
-    showType: "Movies" | "TV Series"
+    showType: "Movies" | "TV Shows"
 }
 
 function scrollToTop() {

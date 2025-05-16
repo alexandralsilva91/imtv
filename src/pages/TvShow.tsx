@@ -37,9 +37,9 @@ function TvShow() {
                             tags={tvShow.genres}
                         />
                         <Overview text={tvShow.overview? tvShow.overview : "No available data."} />
-                        <Credits membersType="Cast" showType="TV Series" id={tvShow.id} />
-                        <Credits membersType="Crew" showType="TV Series" id={tvShow.id} />
-                        <MoreLikeThis showType="TV Series" id={id} />
+                        <Credits membersType="Cast" showType="TV Shows" id={tvShow.id} />
+                        <Credits membersType="Crew" showType="TV Shows" id={tvShow.id} />
+                        <MoreLikeThis showType="TV Shows" id={id} />
                     </>
                 )}
         </>

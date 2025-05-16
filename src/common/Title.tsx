@@ -2,18 +2,13 @@ import "./title.scss";
 
 interface IProps {
     title: string,
-    smaller?: boolean,
+    noMargin: boolean,
 }
 
-function Title( {title, smaller} : IProps) {
+function Title( {title, noMargin} : IProps) {
     
     return(
-        <>
-        {smaller? 
-            (<div className="title-smaller">{title}</div>) 
-            : 
-            (<div className="title">{title}</div>)}
-        </>
+        <div className={`title${noMargin? " title--no-margin" : ""}`}>{title}</div> 
     )    
 }
 

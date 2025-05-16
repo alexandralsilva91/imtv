@@ -5,8 +5,8 @@ import AiringTodayTvShows from "../page_sections/TvAiringToday";
 function Tv() {
     return(
         <>
-            <Popular showType="TV Series" />
-            <TopRated showType="TV Series" />
+            <Popular showType="TV Shows" />
+            <TopRated showType="TV Shows" />
             <AiringTodayTvShows />
             
         </>

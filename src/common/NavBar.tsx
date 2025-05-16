@@ -10,7 +10,7 @@ function NavBar() {
                 <h1>IMTV</h1>
             </Link>
             <SearchBar />
-            <div className="navbar-right">
+            <div className="navbar__buttons">
                 
                 <Link to="/movies">
                     <Button color="blue">Movies</Button>

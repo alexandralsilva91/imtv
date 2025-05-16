@@ -3,7 +3,7 @@ import api from '../utils/api';
 import Section from '../common/Section';
 
 interface IProps {
-    showType: "Movies" | "TV Series"
+    showType: "Movies" | "TV Shows"
 }
 
 function TopRated({ showType }: IProps) {
@@ -18,7 +18,7 @@ function TopRated({ showType }: IProps) {
                 }).finally(() => {
                     setIsLoading(false);
                 })
-        } else if (showType === "TV Series") {
+        } else if (showType === "TV Shows") {
             api.getTvTopRated()
                 .then((data) => {
                     setShows(data.results);

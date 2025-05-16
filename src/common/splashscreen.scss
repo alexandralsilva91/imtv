@@ -30,23 +30,22 @@
         gap: 2rem;
         bottom: -5rem;
         left: 7rem;
-    }
 
-    &__content-left {
-        width: 280px;
-
-        & img {
-            width: inherit;
-            border-radius: 0.5rem;
-            border: 2px solid $background;
+        &-left {
+            width: 280px;
+    
+            & img {
+                width: inherit;
+                border-radius: 0.5rem;
+                border: 2px solid $background;
+            }
         }
-    }
-
-    &__content-right {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        text-shadow: 1px 1px 2px $background;
+        &-right {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-shadow: 1px 1px 2px $background;
+        }
     }
 
     &__title {

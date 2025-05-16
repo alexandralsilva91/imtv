@@ -18,7 +18,7 @@ function AiringTodayTvShows() {
     return (
         <>
         {isLoading? ("Loading") : 
-        (<Section showType="TV Series" title="Airing Today" items={shows} isLoading={isLoading} isScrollable/>)}
+        (<Section showType="TV Shows" title="Airing Today" items={shows} isLoading={isLoading} isScrollable/>)}
         </>
     );
 }

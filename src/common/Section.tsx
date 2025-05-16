@@ -3,7 +3,7 @@ import "./section.scss";
 import SectionLoader from "./SectionLoader";
 
 interface IProps {
-    showType: "Movies" | "TV Series"
+    showType: "Movies" | "TV Shows"
     title: string;
     items: [];
     isLoading: boolean;
@@ -19,10 +19,10 @@ function renderContent({ isLoading, showType, items, extraClassName }) {
         return (
             <div className={`section__cards ${extraClassName}`}>
                 {
-                    showType === "TV Series" ?
+                    showType === "TV Shows" ?
                         items.map((item) => (
                             <Card
-                                showType="TV Series"
+                                showType="TV Shows"
                                 key={item.id}
                                 id={item.id}
                                 title={item.name}

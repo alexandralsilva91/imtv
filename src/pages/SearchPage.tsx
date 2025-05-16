@@ -33,8 +33,8 @@ function SearchPage() {
 
     return (
         <>
-            <Section showType="Movies" items={searchedMovies} isLoading={isLoading} title="Movies results" isScrollable />
-            <Section showType="TV Series" items={searchedSeries} isLoading={isLoading} title="Series results" isScrollable />
+            <Section showType="Movies" items={searchedMovies} isLoading={isLoading} title="Movie results" isScrollable />
+            <Section showType="TV Shows" items={searchedSeries} isLoading={isLoading} title="TV Show results" isScrollable />
         </>    
     )
 }
