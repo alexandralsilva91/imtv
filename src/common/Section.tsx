@@ -13,7 +13,7 @@ interface IProps {
 function renderContent({ isLoading, showType, items, extraClassName }) {
     if (!isLoading && items.length === 0) {
         return (
-            <p>No available data</p>
+            <p className="section__nodata">No available data.</p>
         );
     } else {
         return (

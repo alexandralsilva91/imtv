@@ -46,7 +46,7 @@ function Credits({ membersType, showType }: IProps) {
 
     const castResultsToRender = () => {
         if (!castElements || castElements.length === 0 || castElements[0] === null) {
-            return <p>No available data</p>
+            return <p>No available data.</p>
         }
         return (
             castElements.map((element) => (
@@ -64,7 +64,7 @@ function Credits({ membersType, showType }: IProps) {
 
     const crewResultsToRender = () => {
         if (!crewElements || crewElements.length === 0 || crewElements[0] === null) {
-            return <p>No available data</p>
+            return <p>No available data.</p>
         }      
         return(
             crewElements.map((element) => (
