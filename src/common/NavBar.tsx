@@ -11,7 +11,7 @@ function NavBar() {
             </Link>
             <SearchBar />
             <div className="navbar__buttons">
-                
+
                 <Link to="/movies">
                     <Button color="blue">Movies</Button>
                 </Link>
@@ -23,14 +23,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
-/*
- <form id="search" class="js-search-form search-form" action="/search/" method="get" autocorrect="off">
-                    <input autocomplete="false" name="hidden" type="text" style="display:none;"/>
-                        <fieldset>
-                            <label for="search-q" class="hidden">Search:</label>
-                            <input type="text" name="q" id="search-q" class="field -borderless" data-lpignore="true" inputmode="search" value="" />
-                            <input type="submit" value="Search" class="action" />
-                        </fieldset>
-                </form> */

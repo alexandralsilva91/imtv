@@ -31,17 +31,14 @@ function MoreLikeThis({ showType, id }: IProps) {
     }, [showType, id]);
 
     return (
-        <>{isLoading ?
-            ("Loading") :
-            (<Section
-                showType={showType}
-                title="More Like This"
-                items={shows}
-                isLoading={isLoading}
-                isScrollable
-            />)}
-        </>
-    )
+        <Section
+            showType={showType}
+            title="More Like This"
+            items={shows}
+            isLoading={isLoading}
+            isScrollable
+        />
+    );
 }
 
 export default MoreLikeThis;

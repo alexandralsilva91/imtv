@@ -16,10 +16,7 @@ function UpcomingMovies() {
     }, []);
 
     return (
-        <>
-            {isLoading ? ("Loading") :
-                (<Section title="Upcoming Movies" items={movies} isLoading={isLoading} isScrollable />)}
-        </>
+        <Section title="Upcoming Movies" items={movies} isLoading={isLoading} isScrollable />
     );
 }
 
