@@ -1,11 +1,11 @@
-import Title from "./Title";
-import "./overview.scss";
+import Title from "../common/Title";
+import "../styles/overview.scss";
 
 interface IProps {
     text: string
 }
 
-function Overview({ text } : IProps) {
+function Overview({ text }: IProps) {
     return (
         <div className="overview">
             <Title title="Overview" noMargin />

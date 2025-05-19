@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import api from "../utils/api";
+import api from "../services/api";
 import Section from "../common/Section";
 
 function SearchPage() {
@@ -35,7 +35,7 @@ function SearchPage() {
         <>
             <Section showType="Movies" items={searchedMovies} isLoading={isLoading} title="Movie results" isScrollable />
             <Section showType="TV Shows" items={searchedSeries} isLoading={isLoading} title="TV Show results" isScrollable />
-        </>    
+        </>
     )
 }
 

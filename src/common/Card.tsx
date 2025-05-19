@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import "./card.scss";
+import "../styles/card.scss";
 import RatingStars from "./RatingStars";
 
 interface IProps {

@@ -1,4 +1,4 @@
-import "./title.scss";
+import "../styles/title.scss";
 
 interface IProps {
     title: string,
@@ -6,7 +6,6 @@ interface IProps {
 }
 
 function Title( {title, noMargin} : IProps) {
-    
     return(
         <div className={`title${noMargin? " title--no-margin" : ""}`}>{title}</div> 
     )    

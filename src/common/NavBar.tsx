@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import Button from "./Button";
-import "./navbar.scss"
-import SearchBar from "./SearchBar";
+import "../styles/navbar.scss";
+import SearchBar from "../page_sections/SearchBar";
 
 function NavBar() {
     return (

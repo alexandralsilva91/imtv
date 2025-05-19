@@ -1,6 +1,7 @@
 import ContentLoader from "react-content-loader";
 
 // I used https://skeletonreact.com/ to help me to do this Component.
+// I used it to create a loading effect of the cards, on the Movies, Tv and SearchPage pages. 
 
 interface IProps {
     isScrollable: boolean,

@@ -1,4 +1,4 @@
-import './button.scss';
+import '../styles/button.scss';
 
 interface Props {
     children: React.ReactNode;

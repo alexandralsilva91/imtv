@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import "./searchbar.scss";
+import "../styles/searchbar.scss";
 
 
 function SearchBar() {

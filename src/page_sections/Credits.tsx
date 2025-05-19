@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "./credits.scss";
-import api from "../utils/api";
+import "../styles/credits.scss";
+import api from "../services/api";
 import { useParams } from "react-router";
-import Title from "./Title";
-import { buildAvatarUrl } from "../utils/format";
+import Title from "../common/Title";
+import { buildAvatarUrl } from "../services/format";
 
 
 interface IProps {
@@ -17,31 +17,27 @@ function Credits({ membersType, showType }: IProps) {
     const [castElements, setCastElements] = useState([]);
     const [crewElements, setCrewElements] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
-    // const request = se o type for igual a movie
-    // resquest = api.getMovieCredits
-    // se o type for igual a tv
-    // request = api.getTvShowCredits
+    
 
     useEffect(() => {
         if (showType === "Movies") {
-            api.getMovieCredits(id!)  
-            .then((data) => {                   // data = { cast: [{}, {}, {}, {}, ...] crew: [{}, {}, {}, {}, ...] }
-                setCastElements(data.cast);     // data.cast= [{}, {}, {}, {}, ...]
-                setCrewElements(data.crew);
-            }).finally(() => {
-                setIsLoading(false);
-            });
+            api.getMovieCredits(id!)
+                .then((data) => {                   // data = { cast: [{}, {}, {}, {}, ...] crew: [{}, {}, {}, {}, ...] }
+                    setCastElements(data.cast);     // data.cast= [{}, {}, {}, {}, ...]
+                    setCrewElements(data.crew);
+                }).finally(() => {
+                    setIsLoading(false);
+                });
         } else if (showType === "TV Shows") {
-            api.getTvShowCredits(id!)  
-            .then((data) => {               
-                setCastElements(data.cast); 
-                setCrewElements(data.crew);
-            }).finally(() => {
-                setIsLoading(false);
-            });
+            api.getTvShowCredits(id!)
+                .then((data) => {
+                    setCastElements(data.cast);
+                    setCrewElements(data.crew);
+                }).finally(() => {
+                    setIsLoading(false);
+                });
         }
-        
+
     }, [id, showType]);
 
     const castResultsToRender = () => {
@@ -65,8 +61,8 @@ function Credits({ membersType, showType }: IProps) {
     const crewResultsToRender = () => {
         if (!crewElements || crewElements.length === 0 || crewElements[0] === null) {
             return <p>No available data.</p>
-        }      
-        return(
+        }
+        return (
             crewElements.map((element) => (
                 <div className="__crew" key={'crew_' + element.id}>
                     <div className="__crew-element">
@@ -77,24 +73,22 @@ function Credits({ membersType, showType }: IProps) {
             ))
         )
     }
-    
+
 
     return (
         <div>
-            {isLoading ? 
-                ("Loading") :
-                (
-                    <div className="credits">
-                        <Title title={membersType} />
-                        <div className="__members-type">
-                            {membersType === "Cast" ?
-                                (castResultsToRender()) :
-                                (crewResultsToRender())
-                            }
-                        </div>
-                    </div>
-                )
-            }
+            <div className="credits">
+                <Title title={membersType} />
+                <div className="__members-type">
+                    {isLoading ?
+                        ("Loading") :
+                        (membersType === "Cast" ?
+                            (castResultsToRender()) :
+                            (crewResultsToRender())
+                        )
+                    }
+                </div>
+            </div>
         </div>
     );
 }

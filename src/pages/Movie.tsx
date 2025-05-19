@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import api from "../utils/api";
+import api from "../services/api";
 import { useParams } from "react-router";
-import SplashScreen from "../common/SplashScreen";
-import { formatTime } from "../utils/format";
-import Overview from "../common/Overview";
-import Credits from "../common/Credits";
-import MoreLikeThis from "../common/MoreLikeThis";
+import SplashScreen from "../page_sections/SplashScreen";
+import { formatTime } from "../services/format";
+import Overview from "../page_sections/Overview";
+import Credits from "../page_sections/Credits";
+import MoreLikeThis from "../page_sections/MoreLikeThis";
 
 function Movie() {
     const { id } = useParams();
@@ -36,7 +36,7 @@ function Movie() {
                             posterPath={movie.poster_path}
                             tags={movie.genres}
                         />
-                        <Overview text={movie.overview? movie.overview : "No available data."} />
+                        <Overview text={movie.overview ? movie.overview : "No available data."} />
                         <Credits membersType="Cast" showType="Movies" id={movie.id} />
                         <Credits membersType="Crew" showType="Movies" id={movie.id} />
                         <MoreLikeThis showType="Movies" id={movie.id} />

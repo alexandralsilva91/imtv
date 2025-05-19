@@ -1,6 +1,6 @@
-import api from "../utils/api";
+import api from "../services/api";
 import { useEffect, useState } from "react";
-import Section from "./Section";
+import Section from "../common/Section";
 
 interface IProps {
     id: number,
@@ -32,12 +32,12 @@ function MoreLikeThis({ showType, id }: IProps) {
 
     return (
         <>{isLoading ?
-            ("Loading"):
+            ("Loading") :
             (<Section
-                showType = { showType }
-                title = "More Like This"
-                items = { shows }
-                isLoading = { isLoading }
+                showType={showType}
+                title="More Like This"
+                items={shows}
+                isLoading={isLoading}
                 isScrollable
             />)}
         </>

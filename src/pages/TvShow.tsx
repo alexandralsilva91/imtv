@@ -1,10 +1,10 @@
-import api from "../utils/api";
+import api from "../services/api";
 import { useParams } from "react-router";
-import SplashScreen from "../common/SplashScreen";
-import Overview from "../common/Overview";
-import Credits from "../common/Credits";
+import SplashScreen from "../page_sections/SplashScreen";
+import Overview from "../page_sections/Overview";
+import Credits from "../page_sections/Credits";
 import { useEffect, useState } from "react";
-import MoreLikeThis from "../common/MoreLikeThis";
+import MoreLikeThis from "../page_sections/MoreLikeThis";
 
 function TvShow() {
 
@@ -36,7 +36,7 @@ function TvShow() {
                             posterPath={tvShow.poster_path}
                             tags={tvShow.genres}
                         />
-                        <Overview text={tvShow.overview? tvShow.overview : "No available data."} />
+                        <Overview text={tvShow.overview ? tvShow.overview : "No available data."} />
                         <Credits membersType="Cast" showType="TV Shows" id={tvShow.id} />
                         <Credits membersType="Crew" showType="TV Shows" id={tvShow.id} />
                         <MoreLikeThis showType="TV Shows" id={id} />

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import api from "../utils/api";
+import api from "../services/api";
 import Section from "../common/Section";
 
 function AiringTodayTvShows() {
@@ -17,8 +17,8 @@ function AiringTodayTvShows() {
 
     return (
         <>
-        {isLoading? ("Loading") : 
-        (<Section showType="TV Shows" title="Airing Today" items={shows} isLoading={isLoading} isScrollable/>)}
+            {isLoading ? ("Loading") :
+                (<Section showType="TV Shows" title="Airing Today" items={shows} isLoading={isLoading} isScrollable />)}
         </>
     );
 }

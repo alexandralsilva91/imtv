@@ -1,4 +1,4 @@
-import "./ratingstars.scss"
+import "../styles/ratingstars.scss";
 
 function convertRatingToStars(rating: number) {
     const convertedRatio = Number((rating / 2).toFixed(1));

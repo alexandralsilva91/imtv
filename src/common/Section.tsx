@@ -1,5 +1,5 @@
 import Card from "./Card";
-import "./section.scss";
+import "../styles/section.scss";
 import SectionLoader from "./SectionLoader";
 
 interface IProps {

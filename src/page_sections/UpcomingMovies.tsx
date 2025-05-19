@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import api from '../utils/api';
+import api from '../services/api';
 import Section from '../common/Section';
 
 function UpcomingMovies() {
@@ -17,8 +17,8 @@ function UpcomingMovies() {
 
     return (
         <>
-        {isLoading? ("Loading") : 
-        (<Section title="Upcoming Movies" items={movies} isLoading={isLoading} isScrollable/>)}
+            {isLoading ? ("Loading") :
+                (<Section title="Upcoming Movies" items={movies} isLoading={isLoading} isScrollable />)}
         </>
     );
 }
